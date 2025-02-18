@@ -10,6 +10,7 @@ import {
   jsonSchemaTransform,
 } from "fastify-type-provider-zod";
 import { subscribeToEventRoute } from "./routes/subscribe-to-event";
+import { env } from "./env";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -30,6 +31,6 @@ app.setSerializerCompiler(serializerCompiler);
 
 app.register(subscribeToEventRoute);
 
-app.listen({ port: 3333 }, () => {
+app.listen({ port: env.PORT }, () => {
   console.log("Server is runnning");
 });
