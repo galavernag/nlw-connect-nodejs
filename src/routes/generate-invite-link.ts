@@ -2,6 +2,7 @@ import z from 'zod'
 
 import { FastifyInstance } from 'fastify'
 import { env } from '../env'
+import { generateInviteLink } from '../functions/generate-invite-link'
 import { subscribeToEvent } from '../functions/subscribe-to-event'
 import type { FastifyTypedInstance } from '../types'
 
@@ -27,8 +28,11 @@ export async function generateInviteLinkRoute(app: FastifyTypedInstance) {
 
       const redirectUrl = new URL(env.WEB_URL)
 
+      await generateInviteLink({ subscriberId })
+
       redirectUrl.searchParams.set('referrer', subscriberId)
 
+      console.log(redirectUrl)
       return reply.redirect(redirectUrl.toString(), 302)
     }
   )
