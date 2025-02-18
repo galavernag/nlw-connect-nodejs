@@ -12,17 +12,20 @@ Este projeto é uma API de gerenciamento de eventos desenvolvida durante o event
 - **Fastify** - Framework web rápido e eficiente
 - **TypeScript** - Tipagem estática para JavaScript
 - **Swagger** - Documentação da API
+- **Drizzle ORM** - Acesso ao banco de dados (PostgreSQL)
+- **Redis** - Banco de dados em memória
 
 ## Funcionalidades
 
 ### Dia 01
+
 - [x] Configuração base da API
 
-<!-- - [ ] Criar e listar eventos 
-- [ ] Inscrição de usuários em eventos
-- [ ] Listagem de participantes
-- [ ] Autenticação e segurança
--->
+### Dia 02
+
+- [x] Criar usuários no banco de dados
+- [x] Gerar o link de convite por usuário
+- [x] Salvar acessos ao link de convite
 
 ## Como Rodar o Projeto
 
@@ -31,6 +34,7 @@ Este projeto é uma API de gerenciamento de eventos desenvolvida durante o event
 Antes de executar o projeto, renomeie o arquivo `.env-example` para `.env` na raiz do projeto e configure as variáveis de ambiente conforme o necessário
 
 ### Instalação e Execução
+
 ```bash
 # Clone o repositório
 git clone https://github.com/galavernag/nlw-connect-nodejs.git
@@ -38,6 +42,9 @@ cd nlw-connect-nodejs
 
 # Instale as dependências
 npm install
+
+# Execute os contâineres Docker
+docker compose up -d
 
 # Inicie o servidor
 npm run dev
@@ -48,6 +55,7 @@ A API estará disponível em `http://localhost:3333`.
 ## Documentação da API
 
 A documentação interativa do Swagger pode ser acessada após rodar o projeto em:
+
 ```
 http://localhost:3333/docs
 ```
@@ -65,8 +73,8 @@ http://localhost:3333/docs
 Este projeto está licenciado sob a Licença MIT.
 
 ## Autor
+
 Desenvolvido por **Guilherme Galaverna** durante o NLW Connect 🚀
 
 📌 Github: [galavernag](https://github.com/galavernag)
 📌 LinkedIn: [galavernag](https://linkedin.com/in/galavernag)
-
