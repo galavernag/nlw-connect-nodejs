@@ -9,6 +9,7 @@ import {
   ZodTypeProvider,
   jsonSchemaTransform,
 } from "fastify-type-provider-zod";
+import { subscribeToEventRoute } from "./routes/subscribe-to-event";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -27,9 +28,7 @@ app.register(fastifySwaggerUi, { routePrefix: "/docs" });
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
-app.get("/hello", (_, reply) => {
-  reply.send("world");
-});
+app.register(subscribeToEventRoute);
 
 app.listen({ port: 3333 }, () => {
   console.log("Server is runnning");
