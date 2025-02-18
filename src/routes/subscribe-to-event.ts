@@ -1,6 +1,7 @@
 import z from 'zod'
 
 import { FastifyInstance } from 'fastify'
+import { subscribeToEvent } from '../functions/subscribe-to-event'
 import type { FastifyTypedInstance } from '../types'
 
 export async function subscribeToEventRoute(app: FastifyTypedInstance) {
@@ -16,8 +17,7 @@ export async function subscribeToEventRoute(app: FastifyTypedInstance) {
         }),
         response: {
           201: z.object({
-            name: z.string(),
-            email: z.string().email(),
+            subscriberId: z.string().uuid(),
           }),
         },
       },
@@ -25,7 +25,9 @@ export async function subscribeToEventRoute(app: FastifyTypedInstance) {
     async (request, reply) => {
       const { name, email } = request.body
 
-      return reply.status(201).send({ name, email })
+      const { subscriberId } = await subscribeToEvent({ name, email })
+
+      return reply.status(201).send({ subscriberId })
     }
   )
 }
