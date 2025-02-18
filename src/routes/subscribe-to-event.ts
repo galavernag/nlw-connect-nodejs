@@ -1,15 +1,15 @@
-import z from "zod";
+import z from 'zod'
 
-import { FastifyInstance } from "fastify";
-import { FastifyTypedInstance } from "../types";
+import { FastifyInstance } from 'fastify'
+import type { FastifyTypedInstance } from '../types'
 
 export async function subscribeToEventRoute(app: FastifyTypedInstance) {
   app.post(
-    "/subscribe",
+    '/subscribe',
     {
       schema: {
-        summary: "Subscribe someone to a created event.",
-        tags: ["subscriptions"],
+        summary: 'Subscribe someone to a created event.',
+        tags: ['subscriptions'],
         body: z.object({
           name: z.string(),
           email: z.string().email(),
@@ -23,9 +23,9 @@ export async function subscribeToEventRoute(app: FastifyTypedInstance) {
       },
     },
     async (request, reply) => {
-      const { name, email } = request.body;
+      const { name, email } = request.body
 
-      return reply.status(201).send({ name, email });
+      return reply.status(201).send({ name, email })
     }
-  );
+  )
 }
