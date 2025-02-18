@@ -1,10 +1,10 @@
-# NLW Connect - API de Gerenciamento de Eventos
+# NLW Connect - API de Gerenciamento de Recomendações
 
 ![Badge](https://img.shields.io/badge/Node.js-16+-green) ![Badge](https://img.shields.io/badge/Fastify-4.x-blue) ![Badge](https://img.shields.io/badge/TypeScript-4.x-blue) ![Badge](https://img.shields.io/badge/Swagger-API%20Docs-orange) ![Badge](https://img.shields.io/badge/License-MIT-yellow)
 
 ## Descrição
 
-Este projeto é uma API de gerenciamento de eventos desenvolvida durante o evento **NLW Connect** da Rocketseat. A API permite que usuários se inscrevam em eventos de forma eficiente e segura.
+Este projeto é uma API de gerenciamento de eventos desenvolvida durante o evento **NLW Connect** da Rocketseat.
 
 ## Tecnologias Utilizadas
 
