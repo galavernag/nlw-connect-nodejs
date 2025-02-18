@@ -10,6 +10,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from './env'
+import { generateInviteLinkRoute } from './routes/generate-invite-link'
 import { subscribeToEventRoute } from './routes/subscribe-to-event'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -30,6 +31,7 @@ app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 
 app.register(subscribeToEventRoute)
+app.register(generateInviteLinkRoute)
 
 app.listen({ port: env.PORT }, () => {
   console.log('Server is runnning')
