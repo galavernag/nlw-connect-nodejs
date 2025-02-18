@@ -1,9 +1,17 @@
 import { fastify } from "fastify";
 import { fastifyCors } from "@fastify/cors";
 
-const app = fastify();
+import {
+  validatorCompiler,
+  serializerCompiler,
+  ZodTypeProvider,
+} from "fastify-type-provider-zod";
+
+const app = fastify().withTypeProvider<ZodTypeProvider>();
 
 app.register(fastifyCors, { origin: "*" });
+app.setValidatorCompiler(validatorCompiler);
+app.setSerializerCompiler(serializerCompiler);
 
 app.get("/hello", (_, reply) => {
   reply.send("world");
