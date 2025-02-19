@@ -30,7 +30,6 @@ export async function generateInviteLinkRoute(app: FastifyTypedInstance) {
 
       redirectUrl.searchParams.set('referrer', subscriberId)
 
-      console.log(redirectUrl)
       return reply.redirect(redirectUrl.toString(), 302)
     }
   )
