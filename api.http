@@ -1,1 +1,20 @@
-GET http://localhost:3333/hello
+POST http://localhost:3333/subscribe
+Content-Type: application/json
+
+{
+  "name": "Usuário Indicado 4",
+  "email": "indicado4@gmail.com",
+  "referer": "42a3c40e-c375-4ff1-a9f5-3f84b116bb8d"
+}
+
+###
+
+GET http://localhost:3333/invites/42a3c40e-c375-4ff1-a9f5-3f84b116bb8d
+
+###
+
+GET http://localhost:3333/subscribers/42a3c40e-c375-4ff1-a9f5-3f84b116bb8d/ranking/clicks
+
+###
+
+GET http://localhost:3333/subscribers/42a3c40e-c375-4ff1-a9f5-3f84b116bb8d/ranking/count
