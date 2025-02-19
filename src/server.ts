@@ -11,6 +11,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { env } from './env'
 import { generateInviteLinkRoute } from './routes/generate-invite-link'
+import { getRankingRoute } from './routes/get-ranking-route'
 import { getSubscriberInviteCliksRoute } from './routes/get-subscriber-invite-clicks'
 import { getSubscriberInviteCountRoute } from './routes/get-subscriber-invite-count'
 import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranking-position'
@@ -38,6 +39,7 @@ app.register(generateInviteLinkRoute)
 app.register(getSubscriberInviteCliksRoute)
 app.register(getSubscriberInviteCountRoute)
 app.register(getSubscriberRankingPositionRoute)
+app.register(getRankingRoute)
 
 app.listen({ port: env.PORT }, () => {
   console.log('Server is runnning')
