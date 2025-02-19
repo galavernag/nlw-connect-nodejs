@@ -3,7 +3,7 @@ import z from 'zod'
 import { FastifyInstance } from 'fastify'
 import { env } from '../env'
 import { generateInviteLink } from '../functions/generate-invite-link'
-import { getSubscriberInviteCliks } from '../functions/get-subscriber-invite-clicks'
+import { getSubscriberInviteClicks } from '../functions/get-subscriber-invite-clicks'
 import { subscribeToEvent } from '../functions/subscribe-to-event'
 import type { FastifyTypedInstance } from '../types'
 
@@ -26,7 +26,7 @@ export async function getSubscriberInviteCliksRoute(app: FastifyTypedInstance) {
     },
     async (request, reply) => {
       const { subscriberId } = request.params
-      const { count } = await getSubscriberInviteCliks({ subscriberId })
+      const { count } = await getSubscriberInviteClicks({ subscriberId })
 
       return reply.send({ count })
     }
