@@ -17,9 +17,7 @@ export async function generateInviteLinkRoute(app: FastifyTypedInstance) {
           subscriberId: z.string().uuid(),
         }),
         response: {
-          201: z.object({
-            subscriberId: z.string().uuid(),
-          }),
+          302: z.null(),
         },
       },
     },
