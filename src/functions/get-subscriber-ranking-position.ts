@@ -9,7 +9,6 @@ export async function getSubscriberRankingPosition({
 }: GetSubscriberRankingPosition) {
   const rank = await redis.zrevrank('referral:ranking', subscriberId)
 
-  console.log(rank)
   if (typeof rank === 'object') {
     return {
       position: null,
