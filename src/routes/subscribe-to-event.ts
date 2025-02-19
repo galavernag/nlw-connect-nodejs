@@ -14,6 +14,7 @@ export async function subscribeToEventRoute(app: FastifyTypedInstance) {
         body: z.object({
           name: z.string(),
           email: z.string().email(),
+          referer: z.string().nullish(),
         }),
         response: {
           201: z.object({
@@ -23,9 +24,13 @@ export async function subscribeToEventRoute(app: FastifyTypedInstance) {
       },
     },
     async (request, reply) => {
-      const { name, email } = request.body
+      const { name, email, referer } = request.body
 
-      const { subscriberId } = await subscribeToEvent({ name, email })
+      const { subscriberId } = await subscribeToEvent({
+        name,
+        email,
+        referrerId: referer,
+      })
 
       return reply.status(201).send({ subscriberId })
     }
